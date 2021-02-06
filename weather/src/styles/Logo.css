@@ -1,0 +1,10 @@
+.logoHolder {
+  display: flex;
+  align-items: center;
+}
+.logoHolder > img {
+  height: 5rem;
+}
+.logoHolder > h1 {
+  color: #fff;
+}

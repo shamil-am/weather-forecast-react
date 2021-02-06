@@ -1,0 +1,24 @@
+.timeHolder {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.timeHolder h3 {
+  color: #ffffffb4;
+  margin: 0;
+  font-size: 2rem;
+}
+.dot {
+  animation-name: dotAnimation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes dotAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

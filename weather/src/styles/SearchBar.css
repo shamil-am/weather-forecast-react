@@ -1,0 +1,46 @@
+.searchBar form {
+  position: relative;
+}
+.searchBar #searchInput {
+  outline: none;
+  background-color: transparent;
+  border: 1px solid #dcdde1b7;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.searchBar #searchInput:hover {
+  border: 1px solid #fff;
+}
+.searchBar label {
+  position: absolute;
+  z-index: 9;
+  margin: 0;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+  background-color: #546de5;
+  padding-right: 4px;
+  padding-left: 4px;
+  color: #fff;
+  cursor: auto;
+}
+.searchBar label.focused {
+  top: 0;
+  font-size: 12px;
+  color: #d7d9db;
+}
+.searchBar .searchBarButtons {
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.searchBar .searchBarButtons .MuiSvgIcon-root {
+  cursor: pointer;
+}
