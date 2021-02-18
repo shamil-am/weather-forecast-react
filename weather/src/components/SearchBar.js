@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "../styles/SearchBar.css";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
-import axios from "axios";
-
+import { useContext } from "react";
+import { WeatherContext } from "../context/weatherContext";
 ///////////
 function SearchBar() {
   const [focused, setFocused] = useState(false);
   const [value, setValue] = useState("");
+  const { getWeatherByCityName } = useContext(WeatherContext);
 
   const changeLabelPositionOnFocus = () => {
     setFocused(true);
@@ -24,26 +25,28 @@ function SearchBar() {
     setValue(e.target.value);
   };
   //
-  const clearValue = () => {
+  const clearValue = (bool) => {
     setValue("");
-    setFocused(false);
+    setFocused(bool);
   };
   //
-  const searchWeather = async () => {
-    try {
-      let response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${value}&appid=e0cfb54a0ca365aab402c260db2feed8`
-      );
-      let result = await response.json();
-      console.log(result);
-    } catch (err) {
-      console.log(err);
+  const searchWeather = () => {
+    if(value){
+          getWeatherByCityName(value);
+    }else{
+      alert("Please type city name")
     }
+  };
+
+  const onSumbitForm = (e) => {
+    e.preventDefault();
+    getWeatherByCityName(value);
+    clearValue(true);
   };
   //
   return (
     <div className="searchBar">
-      <form action="" autoComplete="off ">
+      <form action="" autoComplete="off" onSubmit={onSumbitForm}>
         <label htmlFor="searchInput" className={focused ? "focused" : ""}>
           Enter city's name
         </label>
@@ -60,7 +63,7 @@ function SearchBar() {
         />
         <div className="searchBarButtons">
           <SearchIcon className="mr-1" onClick={searchWeather} />
-          <CloseIcon onClick={clearValue} />
+          <CloseIcon onClick={()=>clearValue(false)} />
         </div>
       </form>
     </div>

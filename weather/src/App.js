@@ -1,9 +1,14 @@
-import Header from './components/Header'
-
+import Header from "./components/Header";
+import MainBody from "./components/MainBody";
+import WeatherProvider from "./context/weatherContext";
+/////
 function App() {
   return (
     <div className="container">
-        <Header/>
+      <WeatherProvider>
+        <Header />
+        <MainBody/>
+      </WeatherProvider>
     </div>
   );
 }

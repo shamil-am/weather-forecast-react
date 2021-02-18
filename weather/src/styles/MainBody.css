@@ -1,0 +1,40 @@
+.mainbody {
+  background-color: rgb(84, 109, 229);
+  border-top: 1px solid #f0ffff65;
+  align-items: center;
+}
+.mainbody .city h2 {
+  color: azure;
+}
+
+.mainbody .sunline {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.mainbody .sunline .sunrise,
+.sunset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainbody .sunline .sunrise,
+.sunset h6,
+.MuiSvgIcon-root {
+  color: azure;
+}
+.mainbody .maininfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mainbody .maininfo .feels_like,
+.humidity,
+.pressure,
+.temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: azure;
+}
